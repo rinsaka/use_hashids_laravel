@@ -11,6 +11,7 @@ class CommentsController extends Controller
 {
   public function index() {
     $comments = Comment::get();
-    dd($comments);
+    return view('comments.index')
+                ->with('comments', $comments);
   }
 }
