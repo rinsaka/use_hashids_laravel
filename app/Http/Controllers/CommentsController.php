@@ -10,8 +10,8 @@ use Hashids\Hashids;
 class CommentsController extends Controller
 {
   public function index() {
-    $hashids = new Hashids();
-    $hash_id = $hashids->encode(1);
+    $hashids = new Hashids('This is a salt', 10);
+    $hash_id = $hashids->encode(2);
     dd('comments@index', $hash_id);
   }
 }
