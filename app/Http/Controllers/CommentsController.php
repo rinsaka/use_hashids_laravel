@@ -25,4 +25,9 @@ class CommentsController extends Controller
     return view('comments.show')
                 ->with('comment', $comment);
   }
+
+  public function store(Request $request)
+  {
+    dd($request, $request->title, $request->body);
+  }
 }
