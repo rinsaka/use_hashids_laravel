@@ -28,6 +28,13 @@ class CommentsController extends Controller
 
   public function store(Request $request)
   {
-    dd($request, $request->title, $request->body);
+    $hashids = new Hashids('This is a salt', 10);
+    $comment = new Comment();
+    $comment->title = $request->title;
+    $comment->body = $request->body;
+    $comment->save();
+    $comment->hashid = $hashids->encode($comment->id);
+    $comment->save();
+    return redirect('/comments');
   }
 }
