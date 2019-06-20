@@ -14,4 +14,8 @@ class CommentsController extends Controller
     return view('comments.index')
                 ->with('comments', $comments);
   }
+
+  public function show($hid) {
+    dd($hid);
+  }
 }
