@@ -28,6 +28,11 @@ class CommentsController extends Controller
 
   public function store(Request $request)
   {
+    $this->validate($request, [
+      'title' => 'required|max:10',
+      'body' => 'required'
+    ]);
+
     $hashids = new Hashids('This is a salt', 10);
     $comment = new Comment();
     $comment->title = $request->title;
