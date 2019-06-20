@@ -8,7 +8,11 @@
     <h1>コメント一覧</h1>
     <ul>
       @foreach ($comments as $comment)
-        <li>{{ $comment->hashid }} : {{ $comment->title }}</li>
+        <li>
+          <a href="{{ action('CommentsController@show', $comment->hashid) }}">
+            {{ $comment->hashid }} : {{ $comment->title }}
+          </a>
+        </li>
       @endforeach
     </ul>
 </body>

@@ -15,7 +15,14 @@ class CommentsController extends Controller
                 ->with('comments', $comments);
   }
 
-  public function show($hid) {
-    dd($hid);
+  public function show($hashid) {
+    $comment = Comment::where('hashid', $hashid)->first();
+
+    if (!$comment) {
+      return redirect('/comments');
+    }
+
+    return view('comments.show')
+                ->with('comment', $comment);
   }
 }
