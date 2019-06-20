@@ -33,7 +33,7 @@ class CommentsController extends Controller
       'body' => 'required'
     ]);
 
-    $hashids = new Hashids('This is a salt', 10);
+    $hashids = parent::init_hashids();
     $comment = new Comment();
     $comment->title = $request->title;
     $comment->body = $request->body;
