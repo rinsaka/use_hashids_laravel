@@ -16,7 +16,6 @@ class CommentsTableSeeder extends Seeder
     // 一旦中身を削除する
     DB::table('comments')->delete();
 
-    // $hashids = new Hashids('This is a salt', 10);
     $hashids = Controller::init_hashids();
 
     DB::table('comments')->insert([

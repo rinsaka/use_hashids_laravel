@@ -14,7 +14,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public static function init_hashids() {
-      $hashids = new Hashids('This is a salt', 10);
+      $hashids = new Hashids(\Config::get('const.HASH_SALT'), \Config::get('const.HASH_LENGTH'));
       return $hashids;
     }
 }
